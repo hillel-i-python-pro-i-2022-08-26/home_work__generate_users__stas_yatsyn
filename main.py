@@ -3,7 +3,7 @@ from faker import Faker
 
 fake = Faker()
 
-count_of_users = int(input('Введіть кількість користувачів ==> '))
+count_of_users = int(input('Введіть кількість користувачів ==>  '))
 
 while True:
     dict_users_data = {f'{fake.user_name() + str(randint(0, 100000))}': (
