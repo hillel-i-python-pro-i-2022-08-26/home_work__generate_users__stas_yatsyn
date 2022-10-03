@@ -13,6 +13,6 @@ def generate_users_data(count_of_users):
             return dict_users_data
 
 
-users_count = int(input('Введіть кількість користувачів ==> '))
+users_count = int(input('Введіть кількість користувачів ==>  '))
 
 print(generate_users_data(users_count))
