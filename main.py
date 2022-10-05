@@ -1,4 +1,5 @@
 from random import randint
+
 from faker import Faker
 
 fake = Faker()
@@ -35,7 +36,7 @@ def validation(count_of_users):
     return validation(count_of_users)
 
 
-# Вивід результату в  консоль
+# Вивід результату в консоль
 def consol_result():
     i = int(input('Введіть кількість користувачів ==> '))
     print(validation(i))
