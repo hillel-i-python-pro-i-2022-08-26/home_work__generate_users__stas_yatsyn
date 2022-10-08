@@ -26,7 +26,7 @@ def generate_users_data(count_of_users):
         user_password = generate_password()
         if user_name in dict_users_data:
             continue
-        print(f'Generation ==> {count_generation}')
+        print(f'Generation ==>  {count_generation}')
         count_generation += 1
         dict_users_data[user_name] = user_password
     return dict_users_data
