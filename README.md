@@ -1,8 +1,7 @@
 # Application for generate users_data
 
 ---
-[![Main workflow](https://github.com/VichiesUA/homework__jango__stas_yatsyn/actions/workflows/main-workflow.yml/badge.svg)](https://github.com/VichiesUA/homework__jango__stas_yatsyn/actions/workflows/main-workflow.yml)
-
+[![Main workflow](https://github.com/hillel-i-python-pro-i-2022-08-26/home_work__generate_users__stas_yatsyn/actions/workflows/main-workflow.yml/badge.svg)](https://github.com/hillel-i-python-pro-i-2022-08-26/home_work__generate_users__stas_yatsyn/actions/workflows/main-workflow.yml)
 ## 🏠 Homework
 
 Homework related actions.
