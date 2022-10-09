@@ -4,43 +4,47 @@ from faker import Faker
 
 fake = Faker()
 
-dict_users_data = {}
-
 
 # Тут генеруються логіни
-def generate_user_name():
-    yield f'{fake.user_name() + str(randint(0, 100000))}'
+def generate_user_name(self):
+    return f'{fake.user_name() + str(randint(0, self))}'
 
 
 # Тут генеруються паролі
 def generate_password():
-    yield fake.password(length=randint(5, 25), special_chars=False)
+    return fake.password(length=randint(5, 25), special_chars=False)
 
 
 # Тут генерується словник з логінами і паролями
 def generate_users_data(count_of_users):
-    for _ in range(count_of_users):
-        user_name = list(generate_user_name())
-        user_password = list(generate_password())
-        dict_users_data[user_name[0]] = user_password[0]
+    # каунт для виводу прогресу в консоль
+    count_generation = 1
+    # Словник з даними користувачів
+    dict_users_data = {}
+    while len(dict_users_data) < count_of_users:
+        user_name = generate_user_name(count_of_users)
+        user_password = generate_password()
+        if user_name in dict_users_data:
+            continue
+        print(f'Generation ==>  {count_generation}')
+        count_generation += 1
+        dict_users_data[user_name] = user_password
+    return dict_users_data
 
 
-# перевірка чи правильна кількість даних згенерувалась
-# якщо неправильна, то догенеровуються дані
+# Та сама валідація))))
 def validation(count_of_users):
-    if len(dict_users_data) == count_of_users:
-        # \n count ==> {len(dict_users_data)} - чисто для перевірки точності роботи скрипта
-        return f'{dict_users_data}, \n count ==> {len(dict_users_data)}'
-    users_count = count_of_users - len(dict_users_data)
-    generate_users_data(users_count)
-    return validation(count_of_users)
+    if len(generate_users_data(count_of_users)) == count_of_users:
+        print('Scripts work is OK')
+    else:
+        print('Script work with error')
 
 
-# Вивід результату в  консоль
-def consol_result():
+# Вивід результату в консоль
+def console_result():
     i = int(input('Введіть кількість користувачів ==> '))
-    print(validation(i))
+    validation(i)
 
 
 if __name__ == '__main__':
-    consol_result()
+    console_result()
